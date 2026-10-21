@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow"><!-- preview only: remove at real launch -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shop | Barakah</title>
+<meta name="description" content="Shop pure honey, dates, nuts, seeds and natural foods from Barakah.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Hind+Siliguri:wght@400;500;600;700&family=Italiana&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="category">
+
+<main class="container shop">
+  <nav class="breadcrumb" aria-label="Breadcrumb" id="breadcrumb"></nav>
+  <header class="page-head">
+    <h1 class="page-title" id="pageTitle"></h1>
+    <p class="page-sub" id="pageSub"></p>
+  </header>
+
+  <div class="shop-layout">
+    <aside class="filters" id="filters" aria-label="Filters">
+      <div class="filters-head">
+        <svg viewBox="0 0 24 24"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></svg>
+        <span>ফিল্টার</span>
+        <button class="icon-btn filters-close" type="button" aria-label="Close filters" id="closeFilters"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      </div>
+      <div class="filter-group">
+        <h4>ক্যাটাগরি</h4>
+        <div class="filter-cats" id="filterCats"></div>
+      </div>
+      <div class="filter-group">
+        <h4>ওজন</h4>
+        <div class="chips" id="weightChips"></div>
+      </div>
+      <div class="filter-group">
+        <h4>মূল্য সীমা</h4>
+        <div class="range" id="priceRange">
+          <div class="range-track"><span id="rangeFill"></span></div>
+          <input type="range" id="priceMin" aria-label="Minimum price">
+          <input type="range" id="priceMax" aria-label="Maximum price">
+        </div>
+        <div class="range-values"><span id="priceMinLabel"></span><span id="priceMaxLabel"></span></div>
+      </div>
+      <div class="filter-group">
+        <h4>স্টক</h4>
+        <label class="check"><input type="checkbox" value="in" id="availIn"> In Stock</label>
+        <label class="check"><input type="checkbox" value="out" id="availOut"> Out of Stock</label>
+      </div>
+      <button class="btn btn-outline btn-block" type="button" id="resetFilters">Reset filters</button>
+      <div class="filters-apply"><button class="btn btn-primary btn-block" type="button" id="applyFilters">ফলাফল দেখুন</button></div>
+    </aside>
+
+    <section class="shop-main" aria-label="Products">
+      <div class="shop-bar">
+        <span class="muted" id="resultCount"></span>
+        <div class="shop-bar-actions">
+          <button class="btn btn-outline filter-toggle" type="button" id="openFilters">Filter</button>
+          <label class="sort">
+            <span class="sr-only">Sort products</span>
+            <select id="sort">
+              <option value="default">Sort: Default</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="discount">Biggest Discount</option>
+              <option value="name">Name: A to Z</option>
+            </select>
+          </label>
+        </div>
+      </div>
+      <div class="products" id="grid"></div>
+    </section>
+  </div>
+</main>
+
+<script src="data.js"></script>
+<script src="common.js"></script>
+<script src="category.js"></script>
+</body>
+</html>

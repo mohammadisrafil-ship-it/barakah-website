@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow"><!-- preview only: remove at real launch -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Barakah Food | Natural & Organic Food at the Best Price</title>
+<meta name="description" content="Pure honey, dates, nuts, spices and wholesome natural foods delivered to your door.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Hind+Siliguri:wght@400;500;600;700&family=Italiana&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="home">
+
+<main>
+  <!-- ============ HERO ============ -->
+  <section class="container hero" aria-label="Barakah offer">
+    <div class="hero-grid">
+      <!-- main banner: slider (truck artwork + dates, honey, nuts) -->
+      <div class="hero-banner hero-truck hero-slider" id="heroSlider" role="region" aria-roledescription="carousel" aria-label="বারাকাহ অফার">
+        <div class="hs-track">
+          <a class="hs-slide" href="category.html">
+            <!-- finished banner artwork: the headline is part of the image -->
+            <img class="hs-img" src="images/hero-truck-banner.jpg" srcset="images/hero-truck-banner-800.jpg 800w, images/hero-truck-banner.jpg 1600w" sizes="(max-width: 1023px) 100vw, 880px" width="1600" height="592" alt="সরাসরি প্রকৃতি থেকে আপনার দোরগোড়ায় – খেজুর, বাদাম ও শুকনো ফলে ভরা বারাকাহ ডেলিভারি ট্রাক">
+            <h1 class="sr-only">সরাসরি প্রকৃতি থেকে আপনার দোরগোড়ায়</h1>
+          </a>
+          <a class="hs-slide" href="category.html?c=dates">
+            <img class="hs-img" src="images/hero-slide-dates.jpg" srcset="images/hero-slide-dates-800.jpg 800w, images/hero-slide-dates.jpg 1600w" sizes="(max-width: 1023px) 100vw, 880px" width="1600" height="592" alt="আজওয়া, মরিয়ম, সুক্কারি, সাফাভিসহ নানা জাতের প্রিমিয়াম খেজুর" loading="lazy" decoding="async">
+            <div class="hs-copy">
+              <span class="hs-rule" aria-hidden="true"><i></i><svg viewBox="0 0 24 24"><path d="M12 20c-4-2-6-6-5-11 4 1 6 4 5 11zM12 20c4-2 6-6 5-11-4 1-6 4-5 11z"/></svg><i></i></span>
+              <h2>প্রিমিয়াম খেজুরের<br>সেরা সংগ্রহ</h2>
+              <span class="hs-rule flip" aria-hidden="true"><i></i><svg viewBox="0 0 24 24"><path d="M12 20c-4-2-6-6-5-11 4 1 6 4 5 11zM12 20c4-2 6-6 5-11-4 1-6 4-5 11z"/></svg><i></i></span>
+              <p class="hs-sub">আজওয়া · মরিয়ম · সুক্কারি · সাফাভি · মাসরুক · নাগাল · দাব্বাস</p>
+            </div>
+          </a>
+          <a class="hs-slide" href="category.html?c=honey">
+            <img class="hs-img" src="images/hero-slide-honey.jpg" srcset="images/hero-slide-honey-800.jpg 800w, images/hero-slide-honey.jpg 1600w" sizes="(max-width: 1023px) 100vw, 880px" width="1600" height="592" alt="বারাকাহ সুন্দরবন, সরিষা ফুল, লিচু ফুল ও কালোজিরা ফুলের মধু" loading="lazy" decoding="async">
+            <div class="hs-copy">
+              <span class="hs-rule" aria-hidden="true"><i></i><svg viewBox="0 0 24 24"><path d="M12 20c-4-2-6-6-5-11 4 1 6 4 5 11zM12 20c4-2 6-6 5-11-4 1-6 4-5 11z"/></svg><i></i></span>
+              <h2>প্রকৃতির বিশুদ্ধ উপহার<br>খাঁটি মধু</h2>
+              <span class="hs-rule flip" aria-hidden="true"><i></i><svg viewBox="0 0 24 24"><path d="M12 20c-4-2-6-6-5-11 4 1 6 4 5 11zM12 20c4-2 6-6 5-11-4 1-6 4-5 11z"/></svg><i></i></span>
+              <p class="hs-sub">সুন্দরবন · সরিষা ফুল · লিচু ফুল · কালোজিরা ফুলের মধু</p>
+            </div>
+          </a>
+        </div>
+        <div class="hs-dots" role="tablist" aria-label="স্লাইড বাছাই করুন"></div>
+      </div>
+      <a class="hero-side-banner" href="product.html?p=sundarban-honey">
+        <img src="images/hero-honey-side.jpg" alt="Barakah Sundarban honey in the mangrove forest" loading="lazy">
+        <div class="hsb-copy">
+          <span class="hsb-kicker">স্বাদ আর পুষ্টিগুণে অনন্য</span>
+          <h2>সুন্দরবনের<br>খাঁটি মধু</h2>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ SHOP BY CATEGORY ============ -->
+  <section class="cat-band" aria-labelledby="catTitle">
+    <div class="container">
+      <h2 class="section-title center" id="catTitle">ক্যাটাগরি অনুযায়ী কিনুন</h2>
+      <div class="cat-tiles" id="categories"></div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURED PRODUCTS ============ -->
+  <section class="container section">
+    <h2 class="section-title center">জনপ্রিয় পণ্যসমূহ</h2>
+    <div class="products" id="products"></div>
+    <div class="center"><a class="btn btn-outline" id="viewMore" href="category.html">View All Products</a></div>
+  </section>
+
+  <!-- ============ SOCIAL REVIEWS ============ -->
+  <section class="container section social-proof" aria-labelledby="spTitle">
+    <h2 class="section-title center" id="spTitle">গ্রাহকদের মতামত</h2>
+    <p class="sp-sub">ফেসবুক, টিকটক ও ইনস্টাগ্রামে আমাদের গ্রাহকরা যা বলছেন</p>
+    <div class="sp-wall" id="spWall"></div>
+  </section>
+
+</main>
+
+<script src="data.js"></script>
+<script src="common.js"></script>
+<script src="home.js"></script>
+</body>
+</html>

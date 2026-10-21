@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Checkout | Barakah</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Hind+Siliguri:wght@400;500;600;700&family=Italiana&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="checkout">
+
+<main class="container checkout" id="checkoutPage">
+  <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span aria-current="page">Checkout</span></nav>
+  <h1 class="page-title co-title">চেকআউট</h1>
+
+  <form class="co-grid" id="coForm" novalidate>
+    <section class="co-card co-details" aria-labelledby="shipTitle">
+      <h2 id="shipTitle">ডেলিভারি তথ্য</h2>
+      <p class="co-hint">অর্ডার কনফার্ম করতে আপনার নাম, মোবাইল নম্বর ও ঠিকানা দিন।</p>
+
+      <label class="field">
+        <span>আপনার নাম <em>*</em></span>
+        <input type="text" name="name" autocomplete="name" required placeholder="যেমন: রহিম উদ্দিন">
+        <small class="err"></small>
+      </label>
+      <label class="field">
+        <span>মোবাইল নম্বর <em>*</em></span>
+        <input type="tel" name="phone" autocomplete="tel" inputmode="numeric" required placeholder="01XXXXXXXXX" maxlength="14">
+        <small class="err"></small>
+      </label>
+      <label class="field">
+        <span>সম্পূর্ণ ঠিকানা <em>*</em></span>
+        <textarea name="address" rows="3" autocomplete="street-address" required placeholder="বাসা/রোড নং, এলাকা, থানা, জেলা"></textarea>
+        <small class="err"></small>
+      </label>
+
+      <fieldset class="field">
+        <legend>ডেলিভারি এলাকা <em>*</em></legend>
+        <div class="opt-row" id="zones"></div>
+      </fieldset>
+
+      <label class="field">
+        <span>অর্ডার নোট (ঐচ্ছিক)</span>
+        <textarea name="note" rows="2" placeholder="বিশেষ কোনো নির্দেশনা থাকলে লিখুন"></textarea>
+      </label>
+    </section>
+
+    <aside class="co-card co-summary" aria-labelledby="sumTitle">
+      <h2 id="sumTitle">আপনার অর্ডার</h2>
+      <div id="coItems"></div>
+      <dl class="co-totals">
+        <div><dt>সাবটোটাল</dt><dd id="coSub">৳0</dd></div>
+        <div><dt>ডেলিভারি চার্জ</dt><dd id="coShip">৳0</dd></div>
+        <div class="grand"><dt>সর্বমোট</dt><dd id="coTotal">৳0</dd></div>
+      </dl>
+
+      <fieldset class="field pay">
+        <legend>পেমেন্ট পদ্ধতি</legend>
+        <label class="pay-opt">
+          <input type="radio" name="pay" value="cod" checked>
+          <span class="pay-box">
+            <b>ক্যাশ অন ডেলিভারি</b>
+            <small>পণ্য হাতে পেয়ে টাকা পরিশোধ করুন</small>
+          </span>
+        </label>
+        <label class="pay-opt">
+          <input type="radio" name="pay" value="bkash">
+          <span class="pay-box">
+            <b><span class="bkash-mark">bKash</span> বিকাশ</b>
+            <small>বিকাশে আগে পেমেন্ট করুন</small>
+          </span>
+        </label>
+        <div class="bkash-panel" id="bkashPanel" hidden>
+          <ol>
+            <li>বিকাশ অ্যাপ থেকে <b>Send Money</b> করুন এই নম্বরে: <b class="bk-num" id="bkNum"></b></li>
+            <li>পরিমাণ: <b id="bkAmt">৳0</b></li>
+            <li>যে নম্বর থেকে পাঠিয়েছেন এবং ট্রানজেকশন আইডি নিচে লিখুন</li>
+          </ol>
+          <label class="field">
+            <span>বিকাশ নম্বর <em>*</em></span>
+            <input type="tel" name="bkashFrom" inputmode="numeric" placeholder="01XXXXXXXXX" maxlength="14">
+            <small class="err"></small>
+          </label>
+          <label class="field">
+            <span>ট্রানজেকশন আইডি (TrxID) <em>*</em></span>
+            <input type="text" name="trxid" placeholder="যেমন: 9A7B6C5D4E" maxlength="20" autocapitalize="characters">
+            <small class="err"></small>
+          </label>
+        </div>
+      </fieldset>
+
+      <button type="submit" class="btn btn-primary btn-block co-submit" id="coSubmit">অর্ডার কনফার্ম করুন</button>
+      <p class="co-safe">🔒 আপনার তথ্য শুধুমাত্র ডেলিভারির জন্য ব্যবহার করা হবে</p>
+    </aside>
+  </form>
+</main>
+
+<script src="data.js"></script>
+<script src="common.js"></script>
+<script src="checkout.js"></script>
+</body>
+</html>
