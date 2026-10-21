@@ -1,7 +1,7 @@
 // ---------- Checkout settings (edit these) ----------
 const DELIVERY_ZONES = [
-  { id: "inside", label: "চট্টগ্রাম বিভাগের ভিতরে", note: "১-২ দিনে ডেলিভারি", fee: 60 },
-  { id: "outside", label: "চট্টগ্রাম বিভাগের বাইরে", note: "২-৪ দিনে ডেলিভারি", fee: 120 },
+  { id: "inside", label: "চট্টগ্রাম বিভাগের ভিতরে", note: "1-2 দিনে ডেলিভারি", fee: 60 },
+  { id: "outside", label: "চট্টগ্রাম বিভাগের বাইরে", note: "2-4 দিনে ডেলিভারি", fee: 120 },
 ];
 const BKASH_NUMBER = "01XXXXXXXXX"; // personal/merchant bKash number for Send Money
 // Google Sheet that receives every order: paste the Web App URL from setup/google-sheet-orders.gs here
@@ -112,7 +112,7 @@ async function submit(e) {
   const f = form.elements;
   const bad = [];
   if (f.name.value.trim().length < 2) bad.push(setErr("name", "আপনার নাম লিখুন"));
-  if (!BD_PHONE.test(cleanPhone(f.phone.value))) bad.push(setErr("phone", "সঠিক ১১ ডিজিটের মোবাইল নম্বর দিন (01XXXXXXXXX)"));
+  if (!BD_PHONE.test(cleanPhone(f.phone.value))) bad.push(setErr("phone", "সঠিক 11 ডিজিটের মোবাইল নম্বর দিন (01XXXXXXXXX)"));
   if (f.address.value.trim().length < 8) bad.push(setErr("address", "সম্পূর্ণ ঠিকানা লিখুন"));
   const pay = f.pay.value;
   if (pay === "bkash") {

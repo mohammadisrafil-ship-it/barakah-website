@@ -95,9 +95,9 @@ function renderProduct(p) {
         </ul>
 
         <ul class="pd-trust">
-          <li>${ICON.truck} চট্টগ্রাম বিভাগে ২৪-৪৮ ঘণ্টায় ডেলিভারি</li>
+          <li>${ICON.truck} চট্টগ্রাম বিভাগে 24-48 ঘণ্টায় ডেলিভারি</li>
           <li><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></svg> ক্যাশ অন ডেলিভারি</li>
-          <li><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 1 3 6.2L4 20l1-3.5"/></svg> ৭ দিনের সহজ রিটার্ন</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 1 3 6.2L4 20l1-3.5"/></svg> 7 দিনের সহজ রিটার্ন</li>
         </ul>
       </div>
     </div>
@@ -136,7 +136,7 @@ function renderProduct(p) {
       <div class="pd-banner-copy">
         <span class="pd-banner-kicker">প্রাকৃতিক উৎস থেকে সংগৃহীত</span>
         <h2>${esc(p.bn)}</h2>
-        <span class="pd-banner-tag">১০০% খাঁটি ও প্রাকৃতিক</span>
+        <span class="pd-banner-tag">100% খাঁটি ও প্রাকৃতিক</span>
       </div>
     </div>
   </section>

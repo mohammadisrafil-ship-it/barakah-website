@@ -3,7 +3,7 @@ const $ = (s, el = document) => el.querySelector(s);
 const $$ = (s, el = document) => [...el.querySelectorAll(s)];
 const esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
 const BN_DIGITS = "০১২৩৪৫৬৭৮৯";
-const bnNum = n => String(n).replace(/\d/g, d => BN_DIGITS[d]);
+const bnNum = n => String(n); // the site shows English digits everywhere
 const tk = n => "৳" + n.toLocaleString("en-US");
 const photo = (src, alt = "", eager) => `<img src="${src}" alt="${esc(alt)}"${eager ? "" : ` loading="lazy"`} decoding="async">`;
 const params = new URLSearchParams(location.search);
@@ -140,7 +140,7 @@ function renderLayout() {
 </nav>
 
 <button class="float-cart" id="floatCart" data-open="cart" aria-label="Open cart" hidden>
-  <span class="fc-top">${ICON.cart}<span><span id="fcCount">০</span> আইটেম</span></span>
+  <span class="fc-top">${ICON.cart}<span><span id="fcCount">0</span> আইটেম</span></span>
   <b id="fcTotal">৳0</b>
 </button>
 

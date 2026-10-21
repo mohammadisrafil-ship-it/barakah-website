@@ -30,21 +30,21 @@ renderProducts();
 // Real customer reviews go here. To show their profile picture, save it as images/reviews/<name>.jpg
 // and add  photo: "images/reviews/<name>.jpg"  to that review (only with the customer's permission).
 const SOCIAL_REVIEWS = [
-  { p: "fb", name: "Rahim Uddin", photo: "images/reviews/r1.jpg", when: "২ দিন আগে", text: "সুন্দরবনের মধুটা একদম খাঁটি। চামচে তুললে ঘন হয়ে পড়ে, ঘ্রাণটাও আসল। আলহামদুলিল্লাহ 🍯", likes: 48 },
-  { p: "tt", name: "nusrat.cooks", photo: "images/reviews/r2.jpg", when: "১ সপ্তাহ আগে", text: "আজওয়া খেজুরের আনবক্সিং করলাম 😍 প্যাকিং খুবই সুন্দর, খেজুরগুলো নরম আর তাজা।", likes: 312 },
-  { p: "fb", name: "Tanvir Hasan", photo: "images/reviews/r3.jpg", when: "৩ দিন আগে", text: "কাজুবাদাম আর কাঠবাদাম অর্ডার করেছিলাম, পরদিনই ডেলিভারি পেয়েছি। দামও ন্যায্য 👍", likes: 27 },
-  { p: "ig", name: "sadia_homekitchen", photo: "images/reviews/r4.jpg", when: "৫ দিন আগে", text: "চিয়া সিড আর ওটস দিয়ে সকালের নাস্তা এখন রুটিন 🥣 কোয়ালিটি দারুণ!", likes: 96 },
-  { p: "fb", name: "Mahmuda Akter", photo: "images/reviews/r5.jpg", when: "১ সপ্তাহ আগে", text: "আম্মুর জন্য কালোজিরা মধু নিয়েছিলাম, উনি খুব খুশি। ইনশাআল্লাহ আবার নেব।", likes: 33 },
-  { p: "fb", name: "Arif Hossain", photo: "images/reviews/r6.jpg", when: "৪ দিন আগে", text: "মিক্সড বাদামের প্যাকেটটা অফিসে নাস্তার জন্য পারফেক্ট। কোনো নষ্ট বাদাম পাইনি।", likes: 19 },
-  { p: "tt", name: "foodie.dhaka", photo: "images/reviews/r7.jpg", when: "২ সপ্তাহ আগে", text: "মরিয়ম খেজুর vs আজওয়া টেস্ট করলাম ভিডিওতে 😄 দুটোই অসাধারণ, মরিয়ম একটু বেশি মিষ্টি!", likes: 540 },
-  { p: "fb", name: "Shirin Sultana", photo: "images/reviews/r8.jpg", when: "৬ দিন আগে", text: "ঘিয়ের গন্ধেই বোঝা যায় খাঁটি। পোলাওতে দিয়েছিলাম, সবাই প্রশংসা করেছে ❤️", likes: 41 },
-  { p: "ig", name: "fit.with.rafi", photo: "images/reviews/r9.jpg", when: "৩ দিন আগে", text: "পামকিন সিড আর আখরোট আমার জিম ডায়েটের নিয়মিত অংশ 💪 ফ্রেশ পেয়েছি।", likes: 74 },
-  { p: "fb", name: "Kamrul Islam", photo: "images/reviews/r10.jpg", when: "১ দিন আগে", text: "ক্যাশ অন ডেলিভারি থাকায় নিশ্চিন্তে অর্ডার দিয়েছি। ডেলিভারি ম্যানও খুব ভদ্র ছিলেন।", likes: 22 },
-  { p: "x", name: "@nadia_reads", photo: "images/reviews/r11.jpg", when: "১ সপ্তাহ আগে", text: "Barakah-এর সরিষা ফুলের মধু জমে যায়, তার মানেই খাঁটি। Highly recommended 🐝", likes: 15 },
-  { p: "fb", name: "Jannatul Ferdous", photo: "images/reviews/r12.jpg", when: "৫ দিন আগে", text: "ইফতারের জন্য সুক্কারি খেজুর নিয়েছিলাম, মুখে গলে যায়। পরিবারের সবার পছন্দ হয়েছে।", likes: 37 },
-  { p: "tt", name: "ma.er.ranna", photo: "images/reviews/r13.jpg", when: "৩ সপ্তাহ আগে", text: "সরিষার তেলের ঝাঁঝটা একদম গ্রামের মতো 😋 ভর্তা বানিয়ে দেখালাম ভিডিওতে।", likes: 228 },
-  { p: "ig", name: "healthy.bangladesh", photo: "images/reviews/r14.jpg", when: "২ সপ্তাহ আগে", text: "ইসবগুল ভুষি আর তোকমা দিয়ে গরমের শরবত 🍹 পরিষ্কার আর ভালো মানের।", likes: 61 },
-  { p: "fb", name: "Mizanur Rahman", photo: "images/reviews/r15.jpg", when: "২ সপ্তাহ আগে", text: "অর্ডার পরিবর্তন করতে চেয়েছিলাম, সাপোর্ট টিম সাথে সাথে করে দিয়েছে। ভালো সার্ভিস।", likes: 18 },
+  { p: "fb", name: "Rahim Uddin", photo: "images/reviews/r1.jpg", when: "2 দিন আগে", text: "সুন্দরবনের মধুটা একদম খাঁটি। চামচে তুললে ঘন হয়ে পড়ে, ঘ্রাণটাও আসল। আলহামদুলিল্লাহ 🍯", likes: 48 },
+  { p: "tt", name: "nusrat.cooks", photo: "images/reviews/r2.jpg", when: "1 সপ্তাহ আগে", text: "আজওয়া খেজুরের আনবক্সিং করলাম 😍 প্যাকিং খুবই সুন্দর, খেজুরগুলো নরম আর তাজা।", likes: 312 },
+  { p: "fb", name: "Tanvir Hasan", photo: "images/reviews/r3.jpg", when: "3 দিন আগে", text: "কাজুবাদাম আর কাঠবাদাম অর্ডার করেছিলাম, পরদিনই ডেলিভারি পেয়েছি। দামও ন্যায্য 👍", likes: 27 },
+  { p: "ig", name: "sadia_homekitchen", photo: "images/reviews/r4.jpg", when: "5 দিন আগে", text: "চিয়া সিড আর ওটস দিয়ে সকালের নাস্তা এখন রুটিন 🥣 কোয়ালিটি দারুণ!", likes: 96 },
+  { p: "fb", name: "Mahmuda Akter", photo: "images/reviews/r5.jpg", when: "1 সপ্তাহ আগে", text: "আম্মুর জন্য কালোজিরা মধু নিয়েছিলাম, উনি খুব খুশি। ইনশাআল্লাহ আবার নেব।", likes: 33 },
+  { p: "fb", name: "Arif Hossain", photo: "images/reviews/r6.jpg", when: "4 দিন আগে", text: "মিক্সড বাদামের প্যাকেটটা অফিসে নাস্তার জন্য পারফেক্ট। কোনো নষ্ট বাদাম পাইনি।", likes: 19 },
+  { p: "tt", name: "foodie.dhaka", photo: "images/reviews/r7.jpg", when: "2 সপ্তাহ আগে", text: "মরিয়ম খেজুর vs আজওয়া টেস্ট করলাম ভিডিওতে 😄 দুটোই অসাধারণ, মরিয়ম একটু বেশি মিষ্টি!", likes: 540 },
+  { p: "fb", name: "Shirin Sultana", photo: "images/reviews/r8.jpg", when: "6 দিন আগে", text: "ঘিয়ের গন্ধেই বোঝা যায় খাঁটি। পোলাওতে দিয়েছিলাম, সবাই প্রশংসা করেছে ❤️", likes: 41 },
+  { p: "ig", name: "fit.with.rafi", photo: "images/reviews/r9.jpg", when: "3 দিন আগে", text: "পামকিন সিড আর আখরোট আমার জিম ডায়েটের নিয়মিত অংশ 💪 ফ্রেশ পেয়েছি।", likes: 74 },
+  { p: "fb", name: "Kamrul Islam", photo: "images/reviews/r10.jpg", when: "1 দিন আগে", text: "ক্যাশ অন ডেলিভারি থাকায় নিশ্চিন্তে অর্ডার দিয়েছি। ডেলিভারি ম্যানও খুব ভদ্র ছিলেন।", likes: 22 },
+  { p: "x", name: "@nadia_reads", photo: "images/reviews/r11.jpg", when: "1 সপ্তাহ আগে", text: "Barakah-এর সরিষা ফুলের মধু জমে যায়, তার মানেই খাঁটি। Highly recommended 🐝", likes: 15 },
+  { p: "fb", name: "Jannatul Ferdous", photo: "images/reviews/r12.jpg", when: "5 দিন আগে", text: "ইফতারের জন্য সুক্কারি খেজুর নিয়েছিলাম, মুখে গলে যায়। পরিবারের সবার পছন্দ হয়েছে।", likes: 37 },
+  { p: "tt", name: "ma.er.ranna", photo: "images/reviews/r13.jpg", when: "3 সপ্তাহ আগে", text: "সরিষার তেলের ঝাঁঝটা একদম গ্রামের মতো 😋 ভর্তা বানিয়ে দেখালাম ভিডিওতে।", likes: 228 },
+  { p: "ig", name: "healthy.bangladesh", photo: "images/reviews/r14.jpg", when: "2 সপ্তাহ আগে", text: "ইসবগুল ভুষি আর তোকমা দিয়ে গরমের শরবত 🍹 পরিষ্কার আর ভালো মানের।", likes: 61 },
+  { p: "fb", name: "Mizanur Rahman", photo: "images/reviews/r15.jpg", when: "2 সপ্তাহ আগে", text: "অর্ডার পরিবর্তন করতে চেয়েছিলাম, সাপোর্ট টিম সাথে সাথে করে দিয়েছে। ভালো সার্ভিস।", likes: 18 },
 ];
 
 const PLATFORM = {
