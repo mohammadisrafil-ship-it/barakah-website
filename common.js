@@ -8,7 +8,7 @@ const tk = n => "৳" + n.toLocaleString("en-US");
 const photo = (src, alt = "", eager) => `<img src="${src}" alt="${esc(alt)}"${eager ? "" : ` loading="lazy"`} decoding="async">`;
 const params = new URLSearchParams(location.search);
 
-const CONTACT = { phone: "09600-000000", tel: "+8809600000000", whatsapp: "8809600000000" };
+const CONTACT = { phone: "01869-018907", tel: "+8801869018907", whatsapp: "8801869018907", email: "israfilsupol836@gmail.com" };
 
 const catBySlug = slug => CATEGORIES.find(c => c.slug === slug);
 const productBySlug = slug => PRODUCTS.find(p => p.slug === slug);
@@ -118,9 +118,9 @@ function renderLayout() {
     <div>
       <h3>যোগাযোগ</h3>
       <ul>
-        <li>hello@barakahfood.com</li>
-        <li><span class="muted">Customer Support / Hotline:</span><br>${CONTACT.phone}</li>
-        <li><span class="muted">Telesales:</span><br>09600-111111</li>
+        <li><a href="mailto:${CONTACT.email}">${CONTACT.email}</a></li>
+        <li><span class="muted">Customer Support / Hotline:</span><br><a href="tel:${CONTACT.tel}">${CONTACT.phone}</a></li>
+        <li><span class="muted">WhatsApp:</span><br><a href="https://wa.me/${CONTACT.whatsapp}" target="_blank" rel="noopener">${CONTACT.phone}</a></li>
       </ul>
     </div>
     <div>

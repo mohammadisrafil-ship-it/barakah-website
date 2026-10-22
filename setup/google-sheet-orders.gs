@@ -15,7 +15,7 @@
  * Version "New version" → Deploy. The URL stays the same.
  */
 
-const NOTIFY_EMAIL = "";          // e.g. "you@gmail.com"
+const NOTIFY_EMAIL = "israfilsupol836@gmail.com";   // order alerts go here
 const SHEET_NAME = "Orders";
 
 const HEADERS = [
