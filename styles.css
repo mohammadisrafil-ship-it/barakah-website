@@ -830,3 +830,6 @@ img.sp-avatar { object-fit: cover; background: var(--gold-tint); }
 @media (max-width: 1200px) { .cat-tiles { gap: 12px; } .cat-tile-name { font-size: 15px; } }
 @media (max-width: 1023px) { .cat-tiles { grid-template-columns: repeat(3, minmax(0, 170px)); justify-content: center; gap: 22px 18px; } .cat-tile-name { font-size: 17px; } }
 @media (max-width: 640px) { .cat-tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px 12px; } .cat-tile-name { font-size: 15px; } .cat-tile small { font-size: 12px; } }
+.hs-copy h1 { font-family: var(--font-head); font-weight: 700; font-size: 4.2cqw; line-height: 1.22; margin: .5cqw 0; text-shadow: 0 1px 0 rgba(255,240,200,.6), 0 0 2cqw rgba(255,226,160,.7); }
+@container (max-width: 560px) { .hs-copy h1 { font-size: 4.9cqw; } }
+.hs-slide[href="category.html"] .hs-copy { left: 54%; right: 5%; }
