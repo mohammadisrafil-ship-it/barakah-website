@@ -10,11 +10,18 @@ $("#categories").innerHTML = CATEGORIES.map(c => `
 // best sellers first: nuts, then dates, then honey
 const FEATURED_ORDER = ["nuts-seeds", "dates", "honey", "mix-food", "dry-food"];
 const limit = 12;
+// after the best sellers, a mix from the other aisles (oil, milk, oats, coffee, tea, dry fruits)
+const MORE_PICKS = [
+  "mustard-oil", "nescafe-gold", "dano-full-cream-milk", "ceylon-naturals-coconut-oil",
+  "quaker-oats", "maccoffee-gold", "al-mudish-milk", "clariss-extra-virgin-olive-oil",
+  "lipton-green-tea-pure", "cowhead-pure-milk", "golden-raisins", "oateo-instant-oats",
+];
 
 function renderProducts() {
   const list = PRODUCTS.filter(p => p.featured)
     .sort((a, b) => FEATURED_ORDER.indexOf(a.cat) - FEATURED_ORDER.indexOf(b.cat));
-  const shown = list.slice(0, limit);
+  const extra = MORE_PICKS.map(productBySlug).filter(p => p && !p.featured);
+  const shown = [...list.slice(0, limit), ...extra];
   $("#products").innerHTML = shown.length ? shown.map(productCard).join("")
     : `<p class="muted center" style="grid-column:1/-1">No products found.</p>`;
 }
