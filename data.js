@@ -6,7 +6,7 @@ const CATEGORIES = [
   { slug: "nuts-seeds", icon: "images/icon-nuts-seeds.jpg", name: "Nuts & Seeds", bn: "বাদাম ও বীজ", img: "images/cat-nuts.jpg", banner: "images/ai-promo-nuts.jpg" },
   { slug: "dry-fruits", icon: "images/icon-dry-fruits.jpg", name: "Dry Fruits", bn: "শুকনো ফল", img: "images/icon-dry-fruits.jpg", banner: "images/hero-golden.jpg" },
   { slug: "oil-ghee", icon: "images/icon-oil-ghee.jpg", name: "Oil & Ghee", bn: "তেল ও ঘি", img: "images/icon-oil-ghee.jpg", banner: "images/hero-golden.jpg" },
-  { slug: "oats-drinks", icon: "images/icon-oats-drinks.jpg", name: "Oats & Drinks", bn: "ওটস ও পানীয়", img: "images/icon-oats-drinks.jpg", banner: "images/hero-golden.jpg" },
+  { slug: "oats-drinks", icon: "images/icon-oats-drinks.jpg", name: "Oats & Milks", bn: "ওটস ও দুধ", img: "images/icon-oats-drinks.jpg", banner: "images/hero-golden.jpg" },
   { slug: "tea-coffee", icon: "images/icon-tea-coffee.jpg", name: "Tea & Coffee", bn: "চা ও কফি", img: "images/icon-tea-coffee.jpg", banner: "images/hero-golden.jpg" },
   { slug: "dry-food", icon: "images/icon-dry-food.jpg", name: "Dry Food", bn: "শুকনো খাবার", img: "images/cat-dry-food.jpg", banner: "images/ai-hero-combo.jpg" },
   { slug: "mix-food", icon: "images/icon-mix-food.jpg", name: "Mix Food", bn: "মিক্স ফুড", img: "images/cat-mix-food.jpg", banner: "images/ai-hero-combo.jpg" },
