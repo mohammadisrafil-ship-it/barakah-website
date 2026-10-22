@@ -824,3 +824,9 @@ img.sp-avatar { object-fit: cover; background: var(--gold-tint); }
 .cat-tile[href$="oil-ghee"] .cat-tile-art img, .cat-tile[href$="oats-drinks"] .cat-tile-art img, .cat-tile[href$="dry-food"] .cat-tile-art img, .cat-tile[href$="mix-food"] .cat-tile-art img { width: 78%; height: 78%; }
 .cat-tile .cat-tile-art img { width: 78%; height: 78%; } /* all category icons the same, slightly smaller size */
 .co-warn { background: #fdecea; color: #b42318; border-radius: 10px; padding: 10px 14px; font-size: 14px; margin: 12px 0 0; }
+/* 9 categories: one row of 9 on desktop, 3 x 3 on tablets and phones */
+.cat-tiles { grid-template-columns: repeat(9, minmax(0, 1fr)); gap: 16px; }
+.cat-tile-name { font-size: 16px; }
+@media (max-width: 1200px) { .cat-tiles { gap: 12px; } .cat-tile-name { font-size: 15px; } }
+@media (max-width: 1023px) { .cat-tiles { grid-template-columns: repeat(3, minmax(0, 170px)); justify-content: center; gap: 22px 18px; } .cat-tile-name { font-size: 17px; } }
+@media (max-width: 640px) { .cat-tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px 12px; } .cat-tile-name { font-size: 15px; } .cat-tile small { font-size: 12px; } }
