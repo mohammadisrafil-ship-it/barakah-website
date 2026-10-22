@@ -6,6 +6,9 @@ const DELIVERY_ZONES = [
 const BKASH_NUMBER = "01XXXXXXXXX"; // personal/merchant bKash number for Send Money
 // Google Sheet that receives every order: paste the Web App URL from setup/google-sheet-orders.gs here
 const ORDER_SHEET_URL = "";
+// Every order is also emailed to the shop through FormSubmit (free). The first order sends an
+// "Activate" email to this address; click it once and all later orders arrive in the inbox.
+const ORDER_EMAIL = "israfilsupol836@gmail.com";
 
 // ---------- Which items are being checked out ----------
 // ?buy=<productId:variantIndex>&qty=n  -> Buy Now: only that item, cart untouched
@@ -105,6 +108,34 @@ async function sendToSheet(o) {
   }
 }
 
+// Emails the order to the shop. Returns true when FormSubmit accepted it.
+async function sendToEmail(o) {
+  if (!ORDER_EMAIL) return false;
+  const ctrl = new AbortController();
+  const t = setTimeout(() => ctrl.abort(), 15000);
+  try {
+    const r = await fetch(`https://formsubmit.co/ajax/${ORDER_EMAIL}`, {
+      method: "POST", signal: ctrl.signal,
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({
+        _subject: `নতুন অর্ডার #${o.id} – ${tk(o.total)} (${o.payMethod})`,
+        _template: "table", _captcha: "false",
+        "অর্ডার নম্বর": o.id, "নাম": o.name, "মোবাইল": o.phone, "ঠিকানা": o.address,
+        "ডেলিভারি এলাকা": o.zone,
+        "পণ্য": o.items.map(i => `${i.name} (${i.size}) × ${i.qty} = ${tk(i.price * i.qty)}`).join(" | "),
+        "সাবটোটাল": tk(o.subtotal), "ডেলিভারি চার্জ": tk(o.delivery), "সর্বমোট": tk(o.total),
+        "পেমেন্ট": o.payment, "নোট": o.note || "-",
+      }),
+    });
+    const j = await r.json().catch(() => ({}));
+    return r.ok && String(j.success) === "true";
+  } catch (err) {
+    return false;
+  } finally {
+    clearTimeout(t);
+  }
+}
+
 async function submit(e) {
   e.preventDefault();
   const btn = $("#coSubmit");
@@ -147,10 +178,11 @@ async function submit(e) {
   // send to the shop's Google Sheet; on a network failure the customer can still send it by WhatsApp
   btn.disabled = true;
   btn.textContent = "অর্ডার পাঠানো হচ্ছে…";
-  const sent = await sendToSheet(order);
+  const [toSheet, toEmail] = await Promise.all([sendToSheet(order), sendToEmail(order)]);
+  const sent = toSheet || toEmail;
   if (!directMode) { cart.clear(); renderCart(); }
 
-  showThanks(order, sent || !ORDER_SHEET_URL);
+  showThanks(order, sent || (!ORDER_SHEET_URL && !ORDER_EMAIL));
 }
 
 function orderMessage(o) {
