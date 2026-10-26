@@ -66,8 +66,9 @@
             <small>পণ্য হাতে পেয়ে টাকা পরিশোধ করুন</small>
           </span>
         </label>
-        <label class="pay-opt">
-          <input type="radio" name="pay" value="bkash">
+        <!-- bKash is switched off for now (Cash on Delivery only). Remove style="display:none" to turn it back on. -->
+        <label class="pay-opt" style="display:none">
+          <input type="radio" name="pay" value="bkash" disabled>
           <span class="pay-box">
             <b><span class="bkash-mark">bKash</span> বিকাশ</b>
             <small>বিকাশে আগে পেমেন্ট করুন</small>
