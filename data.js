@@ -121,7 +121,7 @@ const PRODUCTS = [
     variants: [["1 kg", 1600]], featured: true,
     intro: "ক্যালিফোর্নিয়ার বড় আকারের তাজা কাঠবাদাম। ভিটামিন ই, প্রোটিন ও ম্যাগনেসিয়ামের চমৎকার উৎস।",
     ingredients: "100% ক্যালিফোর্নিয়া কাঠবাদাম" },
-  { id: 28, slug: "mixed-nuts", cat: "nuts-seeds", bn: "মিক্সড বাদাম", name: "Premium Mixed Nuts", img: "images/p-mixed-nuts.jpg",
+  { id: 28, slug: "mixed-nuts", cat: "nuts-seeds", bn: "মিক্সড বাদাম", name: "Premium Mixed Nuts", img: "images/p-mixed-nuts.jpg", gallery: ["images/p-mixed-nuts-1.jpg", "images/p-mixed-nuts-2.jpg", "images/p-mixed-nuts-3.jpg"],
     variants: [["1 kg", 1800]], featured: true,
     intro: "কাজুবাদাম, কাঠবাদাম, আখরোট ও পেস্তার প্রিমিয়াম মিশ্রণ। এক প্যাকেটেই প্রোটিন, ভালো ফ্যাট ও প্রয়োজনীয় খনিজের সমন্বয়।",
     ingredients: "কাজুবাদাম, কাঠবাদাম, আখরোট, পেস্তা" },
