@@ -836,3 +836,5 @@ img.sp-avatar { object-fit: cover; background: var(--gold-tint); }
 /* search: smaller text. Phones keep a 16px field (stops iPhone zoom) but show a smaller hint */
 .search input::placeholder { font-size: 13.5px; }
 @media (min-width: 1024px) { .search input { font-size: 14px; } }
+.hs-copy--left { left: 5%; right: 52%; } /* text on the open left side of the image */
+@container (max-width: 560px) { .hs-copy--left { left: 3%; right: 50%; } }
