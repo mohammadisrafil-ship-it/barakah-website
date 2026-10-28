@@ -168,7 +168,7 @@ const PRODUCTS = [
     variants: [["4 Pack", 680, 950], ["8 Pack", 1280, 1800]],
     intro: "হলুদ, মরিচ, ধনিয়া ও জিরা গুঁড়ার সাশ্রয়ী কম্বো। কোনো রং বা ভেজাল ছাড়া।",
     ingredients: "হলুদ, মরিচ, ধনিয়া ও জিরা গুঁড়া" },
-  { id: 17, slug: "honey-nuts", cat: "nuts-seeds", bn: "মধুময় বাদাম", name: "Honey Nuts Jar", img: "images/p-honey-nuts.jpg",
+  { id: 17, slug: "honey-nuts", cat: "nuts-seeds", bn: "মধুময় বাদাম", name: "Honey Nuts Jar", img: "images/p-honey-nuts.jpg", gallery: ["images/p-honey-nuts-1.jpg", "images/p-honey-nuts-2.jpg", "images/p-honey-nuts-3.jpg"],
     variants: [["500 g", 990, 1250], ["1 kg", 1850, 2400]], featured: true,
     intro: "খাঁটি মধুতে ডোবানো কাজু, কাঠবাদাম, আখরোট ও পেস্তা। শক্তি ও পুষ্টির দারুণ সমন্বয়।",
     ingredients: "খাঁটি মধু, কাজুবাদাম, কাঠবাদাম, আখরোট, পেস্তা" },
