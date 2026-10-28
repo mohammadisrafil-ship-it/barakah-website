@@ -832,9 +832,18 @@ img.sp-avatar { object-fit: cover; background: var(--gold-tint); }
 @media (max-width: 640px) { .cat-tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px 12px; } .cat-tile-name { font-size: 15px; } .cat-tile small { font-size: 12px; } }
 .hs-copy h1 { font-family: var(--font-head); font-weight: 700; font-size: 4.2cqw; line-height: 1.22; margin: .5cqw 0; text-shadow: 0 1px 0 rgba(255,240,200,.6), 0 0 2cqw rgba(255,226,160,.7); }
 @container (max-width: 560px) { .hs-copy h1 { font-size: 4.9cqw; } }
-.hs-slide[href="category.html"] .hs-copy { left: 54%; right: 5%; }
 /* search: smaller text. Phones keep a 16px field (stops iPhone zoom) but show a smaller hint */
 .search input::placeholder { font-size: 13.5px; }
 @media (min-width: 1024px) { .search input { font-size: 14px; } }
 .hs-copy--left { left: 5%; right: 52%; } /* text on the open left side of the image */
 @container (max-width: 560px) { .hs-copy--left { left: 3%; right: 50%; } }
+/* hero: one full-width slider, a little taller */
+.hero-grid { grid-template-columns: 1fr; }
+.hero-grid .hero-truck { aspect-ratio: 1600 / 640; }
+.hero-side-banner { display: none; }
+/* light text for the dark slide backgrounds */
+.hs-copy--light { color: #fff6df; }
+.hs-copy--light h1, .hs-copy--light h2 { color: #fff6df; text-shadow: 0 2px 14px rgba(0,0,0,.35); }
+.hs-copy--light .hs-rule i { background: var(--gold); }
+.hs-copy--light .hs-rule svg { fill: var(--gold); }
+.hs-copy--light .hs-sub { background: rgba(0,0,0,.28); color: #ffe7a8; border: 1px solid rgba(226,180,47,.45); }
