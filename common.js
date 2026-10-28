@@ -36,7 +36,7 @@ function renderLayout() {
   const activeCat = page === "category" ? params.get("c")
     : page === "product" ? (productBySlug(params.get("p")) || {}).cat : null;
   const navLinks = CATEGORIES.map(c =>
-    `<a href="${categoryUrl(c.slug)}"${c.slug === activeCat ? ` class="active" aria-current="page"` : ""}>${esc(c.name)}</a>`).join("");
+    `<a href="${categoryUrl(c.slug)}"${c.slug === activeCat ? ` class="active" aria-current="page"` : ""}>${esc(c.name)} <span class="bn">(${esc(c.bn)})</span></a>`).join("");
 
   document.body.insertAdjacentHTML("afterbegin", `
 <header class="site-header">

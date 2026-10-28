@@ -861,3 +861,12 @@ img.sp-avatar { object-fit: cover; background: var(--gold-tint); }
 .hs-btn { display: inline-flex; align-items: center; margin-top: 1.6cqw; padding: .9cqw 2.4cqw; border-radius: 10px; background: var(--gold); color: var(--brand-dark); font-weight: 700; font-size: 1.35cqw; box-shadow: 0 .6cqw 1.6cqw -0.6cqw rgba(0,0,0,.5); transition: background .2s, transform .2s; }
 .hs-slide:hover .hs-btn { background: #f0c53f; transform: translateY(-2px); }
 @container (max-width: 560px) { .hs-btn { font-size: 2.9cqw; padding: 1.6cqw 4cqw; margin-top: 2.4cqw; border-radius: 8px; } }
+/* slider dots: active one white */
+.hs-dots button[aria-selected="true"]::before { background: #fff; }
+/* top menu: English + (Bangla), tighter so all 9 fit */
+.cat-scroll { gap: 18px; }
+.cat-scroll a { font-size: 13.5px; }
+.cat-scroll a .bn { font-family: var(--font-head); font-weight: 500; opacity: .85; }
+@media (max-width: 1360px) { .cat-scroll { gap: 14px; } .cat-scroll a { font-size: 13px; } }
+@media (max-width: 1200px) { .cat-scroll a .bn { display: none; } }
+@media (min-width: 1201px) { .cat-scroll { gap: 13px; } .cat-scroll a { font-size: 13px; } .cat-scroll a .bn { font-size: 12.5px; } }
