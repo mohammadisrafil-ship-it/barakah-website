@@ -870,3 +870,7 @@ img.sp-avatar { object-fit: cover; background: var(--gold-tint); }
 @media (max-width: 1360px) { .cat-scroll { gap: 14px; } .cat-scroll a { font-size: 13px; } }
 @media (max-width: 1200px) { .cat-scroll a .bn { display: none; } }
 @media (min-width: 1201px) { .cat-scroll { gap: 13px; } .cat-scroll a { font-size: 13px; } .cat-scroll a .bn { font-size: 12.5px; } }
+/* 8 categories again: one row of 8 on desktop, 4 x 2 on tablets and phones */
+.cat-tiles { grid-template-columns: repeat(8, minmax(0, 1fr)); }
+@media (max-width: 1023px) { .cat-tiles { grid-template-columns: repeat(4, minmax(0, 160px)); } }
+@media (max-width: 640px) { .cat-tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px 10px; } .cat-tile-name { font-size: 14px; } }
