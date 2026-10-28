@@ -833,3 +833,6 @@ img.sp-avatar { object-fit: cover; background: var(--gold-tint); }
 .hs-copy h1 { font-family: var(--font-head); font-weight: 700; font-size: 4.2cqw; line-height: 1.22; margin: .5cqw 0; text-shadow: 0 1px 0 rgba(255,240,200,.6), 0 0 2cqw rgba(255,226,160,.7); }
 @container (max-width: 560px) { .hs-copy h1 { font-size: 4.9cqw; } }
 .hs-slide[href="category.html"] .hs-copy { left: 54%; right: 5%; }
+/* search: smaller text. Phones keep a 16px field (stops iPhone zoom) but show a smaller hint */
+.search input::placeholder { font-size: 13.5px; }
+@media (min-width: 1024px) { .search input { font-size: 14px; } }
