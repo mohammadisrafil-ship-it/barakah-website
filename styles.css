@@ -847,3 +847,7 @@ img.sp-avatar { object-fit: cover; background: var(--gold-tint); }
 .hs-copy--light .hs-rule i { background: var(--gold); }
 .hs-copy--light .hs-rule svg { fill: var(--gold); }
 .hs-copy--light .hs-sub { background: rgba(0,0,0,.28); color: #ffe7a8; border: 1px solid rgba(226,180,47,.45); }
+/* natural photo slides: soft dark fade on the text side so the cream headline stays readable */
+.hs-slide .hs-img { z-index: 0; }
+.hs-slide:has(.hs-copy--light)::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(90deg, rgba(20,12,4,.62) 0%, rgba(20,12,4,.42) 32%, rgba(20,12,4,0) 55%); }
+.hs-copy { z-index: 2; }
