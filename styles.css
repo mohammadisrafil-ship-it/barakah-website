@@ -878,3 +878,5 @@ img.sp-avatar { object-fit: cover; background: var(--gold-tint); }
 .hs-dots { gap: 0; }
 .hs-dots button { width: auto; height: 24px; padding: 0 3px; }
 @media (max-width: 640px) { .hs-dots button { width: auto; height: 20px; padding: 0 2px; } }
+@media (min-width: 1201px) { .cat-scroll { gap: 26px; } } /* clear space between menu items */
+@media (min-width: 1201px) and (max-width: 1360px) { .cat-scroll { gap: 18px; } }
