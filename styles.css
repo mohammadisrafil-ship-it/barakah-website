@@ -880,3 +880,7 @@ img.sp-avatar { object-fit: cover; background: var(--gold-tint); }
 @media (max-width: 640px) { .hs-dots button { width: auto; height: 20px; padding: 0 2px; } }
 @media (min-width: 1201px) { .cat-scroll { gap: 26px; } } /* clear space between menu items */
 @media (min-width: 1201px) and (max-width: 1360px) { .cat-scroll { gap: 18px; } }
+/* truck slide: text on the open sky at the right, dark fade from the right */
+.hs-copy--right { left: 56%; right: 4%; text-align: left; align-items: flex-start; }
+.hs-slide:has(.hs-copy--right)::after { background: linear-gradient(270deg, rgba(20,12,4,.55) 0%, rgba(20,12,4,.35) 35%, rgba(20,12,4,0) 55%); }
+@container (max-width: 560px) { .hs-copy--right { left: 52%; right: 3%; } }
