@@ -851,3 +851,4 @@ img.sp-avatar { object-fit: cover; background: var(--gold-tint); }
 .hs-slide .hs-img { z-index: 0; }
 .hs-slide:has(.hs-copy--light)::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(90deg, rgba(20,12,4,.62) 0%, rgba(20,12,4,.42) 32%, rgba(20,12,4,0) 55%); }
 .hs-copy { z-index: 2; }
+.hs-rule { display: none; } /* no decorative lines around slide headlines */
