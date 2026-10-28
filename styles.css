@@ -855,3 +855,4 @@ img.sp-avatar { object-fit: cover; background: var(--gold-tint); }
 /* clean light studio slides: dark green headline, no fade */
 .hs-copy--dark h1, .hs-copy--dark h2 { color: var(--brand-dark); text-shadow: none; }
 .hs-copy--dark .hs-sub { background: rgba(255,255,255,.7); color: #3a2a12; border: 1px solid rgba(15,36,16,.12); }
+.hs-copy--left { text-align: left; align-items: flex-start; left: 6%; } /* headlines left-aligned */
