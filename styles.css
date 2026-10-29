@@ -992,3 +992,10 @@ img.sp-avatar { object-fit: cover; background: var(--gold-tint); }
 .co-thanks-actions--main { flex-direction: column; max-width: 420px; margin: 0 auto 20px; }
 .co-thanks-actions--main .btn { height: 54px; font-size: 16px; }
 .co-thanks-actions--main .btn-call { background: #1e3a8a; color: #fff; }
+/* phones: size chips on the left, quantity stepper pushed to the right */
+.pd-opts { display: block; }
+@media (max-width: 640px) {
+  .pd-opts { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 20px; }
+  .pd-opts .pd-variants, .pd-opts .pd-qty { margin: 0; }
+  .pd-opts .pd-qty { margin-left: auto; }
+}

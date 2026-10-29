@@ -58,6 +58,7 @@ function renderProduct(p) {
         <p class="pd-title-en">${esc(p.name)}</p>
         <div class="pd-price" id="pdPrice"></div>
 
+        <div class="pd-opts">
         <div class="pd-variants">
           <span class="pd-label">বাছাই করুন:</span>
           <div class="chips" id="variantChips">
@@ -72,6 +73,7 @@ function renderProduct(p) {
             <input type="number" id="qty" value="1" min="1" max="99" aria-label="Quantity">
             <button type="button" id="qtyInc" aria-label="Increase quantity">+</button>
           </div>
+        </div>
         </div>
 
         <div class="pd-actions">
