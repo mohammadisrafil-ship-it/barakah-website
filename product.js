@@ -49,7 +49,7 @@ function renderProduct(p) {
         <div class="pd-main-img">
           ${stock ? "" : `<span class="badge out">Stock Out</span>`}
           <button ${wishBtnAttrs(p.id).replace('class="wish', 'class="wish pd-wish')}>${ICON.heart}</button>
-          <img id="mainImg" src="${gallery[0]}" alt="${esc(p.name)}">
+          <img class="pd-img-bg" id="mainImgBg" src="${gallery[0]}" alt="" aria-hidden="true"><img id="mainImg" src="${gallery[0]}" alt="${esc(p.name)}">
         </div>
       </div>
 
@@ -206,6 +206,7 @@ function renderProduct(p) {
     $$(".pd-thumbs button").forEach(x => x.classList.remove("active"));
     b.classList.add("active");
     $("#mainImg").src = b.dataset.img;
+    $("#mainImgBg").src = b.dataset.img;
   });
 
   // Buy/Order goes straight to checkout for this item only; Add to Cart opens the side cart
