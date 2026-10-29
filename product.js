@@ -54,7 +54,7 @@ function renderProduct(p) {
       </div>
 
       <div class="pd-info">
-        <h1 class="pd-title">${esc(p.bn)}</h1>
+        <h1 class="pd-title" title="${esc(p.bn)} | ${esc(p.name)}">${esc(p.bn)}<span class="pd-en-inline"> | ${esc(p.name)}</span></h1>
         <p class="pd-title-en">${esc(p.name)}</p>
         <div class="pd-price" id="pdPrice"></div>
 

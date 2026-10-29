@@ -937,3 +937,11 @@ img.sp-avatar { object-fit: cover; background: var(--gold-tint); }
 .pd-actions .btn-call { background: #1e3a8a; color: #fff; }
 .pd-actions .btn-call:hover { background: #172f73; }
 .pd-actions .btn:disabled { background: #d5d9de; color: #6b7280; }
+/* product name: Bangla | English on one line on phones, cut with … if too long (never wraps or overlaps) */
+.pd-en-inline { display: none; }
+@media (max-width: 640px) {
+  .pd-title { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 19px; margin-bottom: 6px; }
+  .pd-en-inline { display: inline; font-family: var(--font-body, inherit); font-weight: 500; font-size: 14px; color: var(--text-2); }
+  .pd-title-en { display: none; }
+}
+@media (max-width: 640px) { .breadcrumb { flex-wrap: nowrap; white-space: nowrap; } .breadcrumb [aria-current] { overflow: hidden; text-overflow: ellipsis; min-width: 0; } }
