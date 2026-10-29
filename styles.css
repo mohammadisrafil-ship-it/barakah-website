@@ -945,3 +945,8 @@ img.sp-avatar { object-fit: cover; background: var(--gold-tint); }
   .pd-title-en { display: none; }
 }
 @media (max-width: 640px) { .breadcrumb { flex-wrap: nowrap; white-space: nowrap; } .breadcrumb [aria-current] { overflow: hidden; text-overflow: ellipsis; min-width: 0; } }
+/* swap: order = gold, cart = dark green */
+.pd-actions #orderBtn { background: var(--gold); color: var(--brand-dark); }
+.pd-actions #orderBtn:hover { background: #f0c53f; }
+.pd-actions #addBtn { background: var(--brand-dark); color: #fff; }
+.pd-actions #addBtn:hover { background: #1c3a1e; }
