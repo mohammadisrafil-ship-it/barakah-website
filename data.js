@@ -145,7 +145,8 @@ const PRODUCTS = [
     intro: "ঘরে ভাজা ও গুঁড়া করা ঐতিহ্যবাহী গরম মসলা। রান্নায় আনে আসল ঘ্রাণ ও স্বাদ।",
     ingredients: "এলাচ, দারুচিনি, লবঙ্গ, গোলমরিচ, জয়ত্রী" },
 
-  { id: 21, slug: "afghani-anjir", cat: "dry-food", bn: "আফগানি আঞ্জির", name: "Afghani Anjir (Dried Figs)", img: "images/p-afghani-anjir.jpg",
+  { id: 21, slug: "afghani-anjir", cat: "dry-food", bn: "আফগানি আঞ্জির", name: "Afghani Anjir (Dry Fig)", img: "images/p-afghani-anjir.jpg",
+    gallery: ["images/p-afghani-anjir.jpg", "images/p-afghani-anjir-2.jpg"],
     variants: [["250 g", 450, 550], ["500 g", 850, 1050], ["1 kg", 1600, 2000]], featured: true,
     intro: "আফগানিস্তানের পাহাড়ি অঞ্চল থেকে আনা বড় ও নরম প্রিমিয়াম শুকনো আঞ্জির (ডুমুর)। প্রাকৃতিকভাবে মিষ্টি, আঁশ ও খনিজে ভরপুর। কোনো চিনি বা প্রিজারভেটিভ যোগ করা হয়নি।",
     ingredients: "100% প্রাকৃতিক শুকনো আফগানি আঞ্জির",
