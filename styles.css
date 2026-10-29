@@ -950,3 +950,27 @@ img.sp-avatar { object-fit: cover; background: var(--gold-tint); }
 .pd-actions #orderBtn:hover { background: #f0c53f; }
 .pd-actions #addBtn { background: var(--brand-dark); color: #fff; }
 .pd-actions #addBtn:hover { background: #1c3a1e; }
+/* ===== Product page, phones: everything needed to buy fits in the first screen ===== */
+@media (max-width: 640px) {
+  body[data-page="product"] .breadcrumb { display: none; }
+  body[data-page="product"] .pd-card { margin-top: 10px; padding: 10px; gap: 8px; }
+  /* photo height follows the screen height */
+  .pd-gallery { grid-template-columns: 46px 1fr; gap: 6px; }
+  .pd-thumbs { grid-auto-rows: 46px; gap: 5px; max-height: clamp(130px, 27vh, 230px); overflow: hidden; }
+  .pd-main-img, .pd-gallery.single .pd-main-img { aspect-ratio: auto; height: clamp(130px, 27vh, 230px); width: 100%; }
+  .pd-main-img img { object-fit: contain; }
+  .pd-wish { width: 34px; height: 34px; top: 6px; right: 6px; }
+  .pd-wish svg { width: 18px; height: 18px; }
+  .pd-title { font-size: 17px; margin: 0 0 2px; }
+  .pd-en-inline { font-size: 13px; }
+  .pd-price { margin-bottom: 6px; }
+  .pd-price b { font-size: 22px; }
+  /* size chips and quantity side by side, no labels */
+  .pd-variants .pd-label, .pd-qty .pd-label { display: none; }
+  .pd-variants, .pd-qty { display: inline-flex; vertical-align: middle; margin: 0 6px 6px 0; }
+  .pd-variants .chip { min-height: 36px; padding: 4px 12px; }
+  .stepper button { width: 34px; height: 36px; }
+  .stepper input { width: 40px; height: 36px; }
+  .pd-actions { margin: 4px 0 10px; gap: 6px; }
+  .pd-actions .btn { height: 42px; font-size: 13.5px; }
+}
