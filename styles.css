@@ -926,3 +926,14 @@ img.sp-avatar { object-fit: cover; background: var(--gold-tint); }
   .pd-gallery.single .pd-main-img { width: 100%; }
 }
 @media (max-width: 640px) { .pd-gallery.single .pd-main-img { width: 82%; margin: 0 auto; } }
+/* product page buttons: solid colours (cart gold, order dark green, WhatsApp green, call navy) */
+.pd-actions .btn { border: 0; border-radius: 10px; font-weight: 700; color: #fff; }
+.pd-actions #addBtn { background: var(--gold); color: var(--brand-dark); }
+.pd-actions #addBtn:hover { background: #f0c53f; }
+.pd-actions #orderBtn { background: var(--brand-dark); color: #fff; }
+.pd-actions #orderBtn:hover { background: #1c3a1e; }
+.pd-actions .btn-whatsapp { background: #1fae5b; color: #fff; }
+.pd-actions .btn-whatsapp:hover { background: #17924b; }
+.pd-actions .btn-call { background: #1e3a8a; color: #fff; }
+.pd-actions .btn-call:hover { background: #172f73; }
+.pd-actions .btn:disabled { background: #d5d9de; color: #6b7280; }
