@@ -108,32 +108,28 @@ async function sendToSheet(o) {
   }
 }
 
-// Emails the order to the shop. Returns true when FormSubmit accepted it.
+// Emails the order to the shop through FormSubmit. Tries 3 times; if the service is down the
+// order is queued (orderQueue in common.js) and re-sent automatically on the customer's next page view.
+function emailPayload(o) {
+  return {
+    _subject: `নতুন অর্ডার #${o.id} – ${tk(o.total)} (${o.payMethod})`,
+    _template: "table", _captcha: "false",
+    "অর্ডার নম্বর": o.id, "নাম": o.name, "মোবাইল": o.phone, "ঠিকানা": o.address,
+    "ডেলিভারি এলাকা": o.zone,
+    "পণ্য": o.items.map(i => `${i.name} (${i.size}) × ${i.qty} = ${tk(i.price * i.qty)}`).join(" | "),
+    "সাবটোটাল": tk(o.subtotal), "ডেলিভারি চার্জ": tk(o.delivery), "সর্বমোট": tk(o.total),
+    "পেমেন্ট": o.payment, "নোট": o.note || "-",
+  };
+}
 async function sendToEmail(o) {
   if (!ORDER_EMAIL) return false;
-  const ctrl = new AbortController();
-  const t = setTimeout(() => ctrl.abort(), 15000);
-  try {
-    const r = await fetch(`https://formsubmit.co/ajax/${ORDER_EMAIL}`, {
-      method: "POST", signal: ctrl.signal,
-      headers: { "Content-Type": "application/json", Accept: "application/json" },
-      body: JSON.stringify({
-        _subject: `নতুন অর্ডার #${o.id} – ${tk(o.total)} (${o.payMethod})`,
-        _template: "table", _captcha: "false",
-        "অর্ডার নম্বর": o.id, "নাম": o.name, "মোবাইল": o.phone, "ঠিকানা": o.address,
-        "ডেলিভারি এলাকা": o.zone,
-        "পণ্য": o.items.map(i => `${i.name} (${i.size}) × ${i.qty} = ${tk(i.price * i.qty)}`).join(" | "),
-        "সাবটোটাল": tk(o.subtotal), "ডেলিভারি চার্জ": tk(o.delivery), "সর্বমোট": tk(o.total),
-        "পেমেন্ট": o.payment, "নোট": o.note || "-",
-      }),
-    });
-    const j = await r.json().catch(() => ({}));
-    return r.ok && String(j.success) === "true";
-  } catch (err) {
-    return false;
-  } finally {
-    clearTimeout(t);
+  const job = { url: `https://formsubmit.co/ajax/${ORDER_EMAIL}`, body: emailPayload(o) };
+  for (let attempt = 0; attempt < 3; attempt++) {
+    if (await postOrderJob(job)) return true;
+    await new Promise(r => setTimeout(r, 1500 * (attempt + 1)));
   }
+  queueOrderJob(job);
+  return false;
 }
 
 async function submit(e) {
@@ -197,23 +193,37 @@ function orderMessage(o) {
 
 function showThanks(o, delivered = true) {
   window.scrollTo(0, 0);
-  $("#checkoutPage").innerHTML = `
-    <div class="co-thanks">
-      <div class="co-check">✓</div>
-      <h1 class="page-title">ধন্যবাদ, ${esc(o.name)}!</h1>
-      <p class="co-lead">আপনার অর্ডারটি গ্রহণ করা হয়েছে। অর্ডার নম্বর: <b>#${o.id}</b></p>
-      <p class="muted">শিগগিরই আমাদের প্রতিনিধি ${esc(o.phone)} নম্বরে কল করে অর্ডার কনফার্ম করবেন।</p>
-      ${delivered ? "" : `<p class="co-warn">ইন্টারনেট সমস্যার কারণে অর্ডারটি আমাদের কাছে পৌঁছায়নি। নিচের হোয়াটসঅ্যাপ বাটনে চাপ দিয়ে অর্ডারটি পাঠিয়ে দিন।</p>`}
+  const wa = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(orderMessage(o))}`;
+  const receipt = `
       <div class="co-card co-receipt">
         ${o.items.map(i => `<div><span>${esc(i.name)} <small>(${esc(i.size)}) × ${bnNum(i.qty)}</small></span><b>${tk(i.price * i.qty)}</b></div>`).join("")}
         <div><span>ডেলিভারি (${esc(o.zone)})</span><b>${tk(o.delivery)}</b></div>
         <div class="grand"><span>সর্বমোট</span><b>${tk(o.total)}</b></div>
         <div><span>পেমেন্ট</span><b>${esc(o.payment.startsWith("bKash") ? "বিকাশ" : "ক্যাশ অন ডেলিভারি")}</b></div>
-      </div>
+      </div>`;
+  $("#checkoutPage").innerHTML = delivered ? `
+    <div class="co-thanks">
+      <div class="co-check">✓</div>
+      <h1 class="page-title">ধন্যবাদ, ${esc(o.name)}!</h1>
+      <p class="co-lead">আপনার অর্ডারটি গ্রহণ করা হয়েছে। অর্ডার নম্বর: <b>#${o.id}</b></p>
+      <p class="muted">শিগগিরই আমাদের প্রতিনিধি ${esc(o.phone)} নম্বরে কল করে অর্ডার কনফার্ম করবেন।</p>
+      ${receipt}
       <div class="co-thanks-actions">
-        <a class="btn btn-whatsapp" target="_blank" rel="noopener" href="https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(orderMessage(o))}">Send Order on WhatsApp</a>
+        <a class="btn btn-whatsapp" target="_blank" rel="noopener" href="${wa}">Send Order on WhatsApp</a>
         <a class="btn btn-outline" href="index.html">Continue Shopping</a>
       </div>
+    </div>` : `
+    <div class="co-thanks">
+      <div class="co-check co-check--step">1</div>
+      <h1 class="page-title">আর মাত্র এক ধাপ!</h1>
+      <p class="co-lead">অর্ডার নম্বর: <b>#${o.id}</b></p>
+      <p class="co-step">অর্ডারটি নিশ্চিত করতে নিচের সবুজ বাটনে চাপ দিন। আপনার অর্ডারের সব তথ্য হোয়াটসঅ্যাপে লেখা থাকবে, শুধু <b>Send</b> চাপুন।</p>
+      <div class="co-thanks-actions co-thanks-actions--main">
+        <a class="btn btn-whatsapp btn-block" target="_blank" rel="noopener" href="${wa}">Confirm Order on WhatsApp</a>
+        <a class="btn btn-call btn-block" href="tel:${CONTACT.tel}">Call to Order: ${CONTACT.phone}</a>
+      </div>
+      ${receipt}
+      <a class="btn btn-outline" href="index.html">Continue Shopping</a>
     </div>`;
 }
 

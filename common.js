@@ -469,3 +469,35 @@ let fitTimer;
 window.addEventListener("resize", () => { clearTimeout(fitTimer); fitTimer = setTimeout(fitOneLine, 100); });
 // re-fit once the heading font has loaded, since fallback fonts measure differently
 (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => fitOneLine());
+
+// ---------- Order delivery queue ----------
+// Orders that could not reach the shop's inbox (e.g. the email service was down) are kept here
+// and re-sent quietly on the customer's next page view, so no order is lost.
+async function postOrderJob(job) {
+  const ctrl = new AbortController();
+  const t = setTimeout(() => ctrl.abort(), 12000);
+  try {
+    const r = await fetch(job.url, { method: "POST", signal: ctrl.signal, headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(job.body) });
+    const j = await r.json().catch(() => ({}));
+    return r.ok && String(j.success) === "true";
+  } catch (e) {
+    return false;
+  } finally {
+    clearTimeout(t);
+  }
+}
+function queueOrderJob(job) {
+  try {
+    const q = JSON.parse(localStorage.getItem("barakah-order-queue") || "[]");
+    q.push(job);
+    localStorage.setItem("barakah-order-queue", JSON.stringify(q.slice(-20)));
+  } catch (e) {}
+}
+(async function flushOrderQueue() {
+  let q;
+  try { q = JSON.parse(localStorage.getItem("barakah-order-queue") || "[]"); } catch (e) { return; }
+  if (!q.length) return;
+  const left = [];
+  for (const job of q) if (!(await postOrderJob(job))) left.push(job);
+  try { localStorage.setItem("barakah-order-queue", JSON.stringify(left)); } catch (e) {}
+})();

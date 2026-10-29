@@ -986,3 +986,9 @@ img.sp-avatar { object-fit: cover; background: var(--gold-tint); }
 @media (max-width: 640px) { .pd-price { margin-bottom: 14px; } .pd-variants, .pd-qty { margin-bottom: 14px; } .pd-actions { margin-top: 4px; } } /* breathing room: price / size+qty / buttons */
 @media (max-width: 640px) { .pd-main-img, .pd-gallery.single .pd-main-img { height: clamp(118px, 24vh, 230px); } .pd-thumbs { max-height: clamp(118px, 24vh, 230px); } }
 @media (max-width: 640px) { .pd-price { margin-bottom: 20px; } .pd-variants, .pd-qty { margin-bottom: 20px; } }
+/* order needs one more step (email service unreachable) */
+.co-check--step { background: var(--gold); color: var(--brand-dark); font-weight: 800; }
+.co-step { font-size: 16px; line-height: 1.7; margin: 10px auto 18px; max-width: 460px; }
+.co-thanks-actions--main { flex-direction: column; max-width: 420px; margin: 0 auto 20px; }
+.co-thanks-actions--main .btn { height: 54px; font-size: 16px; }
+.co-thanks-actions--main .btn-call { background: #1e3a8a; color: #fff; }
