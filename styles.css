@@ -974,3 +974,11 @@ img.sp-avatar { object-fit: cover; background: var(--gold-tint); }
   .pd-actions { margin: 4px 0 10px; gap: 6px; }
   .pd-actions .btn { height: 42px; font-size: 13.5px; }
 }
+/* phone bottom bar: same dark green as the header */
+@media (max-width: 1023px) {
+  .bottom-bar { background: var(--brand-dark); border-top: 1px solid rgba(255,255,255,.08); }
+  .bottom-bar a { color: rgba(255,255,255,.78); }
+  .bottom-bar a.active { color: var(--gold); }
+  .bottom-bar a:active { color: #fff; }
+  .bottom-bar a[data-open="wishlist"] .bb-count { background: var(--gold); color: var(--brand-dark); }
+}
