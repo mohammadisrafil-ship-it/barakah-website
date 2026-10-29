@@ -985,3 +985,4 @@ img.sp-avatar { object-fit: cover; background: var(--gold-tint); }
 .pd-meta { display: none; } /* category / stock lines not needed on the product page */
 @media (max-width: 640px) { .pd-price { margin-bottom: 14px; } .pd-variants, .pd-qty { margin-bottom: 14px; } .pd-actions { margin-top: 4px; } } /* breathing room: price / size+qty / buttons */
 @media (max-width: 640px) { .pd-main-img, .pd-gallery.single .pd-main-img { height: clamp(118px, 24vh, 230px); } .pd-thumbs { max-height: clamp(118px, 24vh, 230px); } }
+@media (max-width: 640px) { .pd-price { margin-bottom: 20px; } .pd-variants, .pd-qty { margin-bottom: 20px; } }
