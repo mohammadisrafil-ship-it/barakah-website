@@ -65,7 +65,7 @@ function render() {
   list = [...list].sort((a, b) => inStock(b) - inStock(a));
 
   $("#resultCount").textContent = `${list.length} product${list.length === 1 ? "" : "s"}`;
-  $("#applyFilters").textContent = `ফলাফল দেখুন (${bnNum(list.length)})`;
+  $("#applyFilters").textContent = `Show Results (${list.length})`;
   $("#grid").innerHTML = list.length ? list.map(productCard).join("")
     : `<div class="empty-state"><p>No products match these filters.</p><button class="btn btn-primary" type="button" data-reset>Reset filters</button></div>`;
 }

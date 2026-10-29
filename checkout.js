@@ -72,7 +72,7 @@ function renderSummary() {
   $("#coShip").textContent = tk(zone.fee);
   $("#coTotal").textContent = tk(total);
   $("#bkAmt").textContent = tk(total);
-  $("#coSubmit").textContent = `অর্ডার কনফার্ম করুন · ${tk(total)}`;
+  $("#coSubmit").textContent = `Confirm Order · ${tk(total)}`;
 }
 
 // ---------- Validation ----------
@@ -177,7 +177,7 @@ async function submit(e) {
   } catch (err) {}
   // send to the shop's Google Sheet; on a network failure the customer can still send it by WhatsApp
   btn.disabled = true;
-  btn.textContent = "অর্ডার পাঠানো হচ্ছে…";
+  btn.textContent = "Placing order…";
   const [toSheet, toEmail] = await Promise.all([sendToSheet(order), sendToEmail(order)]);
   const sent = toSheet || toEmail;
   if (!directMode) { cart.clear(); renderCart(); }
@@ -211,8 +211,8 @@ function showThanks(o, delivered = true) {
         <div><span>পেমেন্ট</span><b>${esc(o.payment.startsWith("bKash") ? "বিকাশ" : "ক্যাশ অন ডেলিভারি")}</b></div>
       </div>
       <div class="co-thanks-actions">
-        <a class="btn btn-whatsapp" target="_blank" rel="noopener" href="https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(orderMessage(o))}">হোয়াটসঅ্যাপে অর্ডার পাঠান</a>
-        <a class="btn btn-outline" href="index.html">আরও কেনাকাটা করুন</a>
+        <a class="btn btn-whatsapp" target="_blank" rel="noopener" href="https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(orderMessage(o))}">Send Order on WhatsApp</a>
+        <a class="btn btn-outline" href="index.html">Continue Shopping</a>
       </div>
     </div>`;
 }
@@ -224,7 +224,7 @@ if (!items.size) {
       ${ICON.cart}
       <h1 class="page-title">আপনার কার্ট খালি</h1>
       <p>চেকআউট করতে আগে কিছু পণ্য যোগ করুন।</p>
-      <a class="btn btn-primary" href="category.html">পণ্য দেখুন</a>
+      <a class="btn btn-primary" href="category.html">Shop Products</a>
     </div>`;
 } else {
   init();

@@ -96,8 +96,8 @@ function renderLayout() {
   <div id="cartBody" class="cart-body"></div>
   <div class="cart-foot" id="cartFoot" hidden>
     <div class="cart-total"><span>সাবটোটাল <small>(ডেলিভারি চার্জ আলাদা)</small></span><strong id="cartTotal">৳0</strong></div>
-    <a href="checkout.html" class="btn btn-primary btn-block cart-checkout">চেকআউট করুন</a>
-    <button type="button" class="cart-continue" data-close>কেনাকাটা চালিয়ে যান</button>
+    <a href="checkout.html" class="btn btn-primary btn-block cart-checkout">Checkout</a>
+    <button type="button" class="cart-continue" data-close>Continue Shopping</button>
   </div>
 </aside>`);
 
@@ -184,7 +184,7 @@ function renderWishlist() {
       <div class="cart-empty">
         ${ICON.heart}
         <p>উইশলিস্ট খালি। পছন্দের পণ্যে ♥ চাপুন।</p>
-        <a href="category.html" class="btn btn-primary">পণ্য দেখুন</a>
+        <a href="category.html" class="btn btn-primary">Shop Products</a>
       </div>`;
     return;
   }
@@ -192,8 +192,8 @@ function renderWishlist() {
     const p = PRODUCTS.find(x => x.id === id), v = p.variants[0];
     // one size: add straight to cart; several sizes: choose on the product page
     const act = !inStock(p) ? `<span class="muted">স্টক শেষ</span>`
-      : p.variants.length > 1 ? `<a class="btn btn-primary wish-act" href="${productUrl(p)}">সাইজ বাছাই করুন</a>`
-      : `<button class="btn btn-primary wish-act" data-add="${p.id}:0">${ICON.cart} কার্টে যোগ করুন</button>`;
+      : p.variants.length > 1 ? `<a class="btn btn-primary wish-act" href="${productUrl(p)}">Choose Size</a>`
+      : `<button class="btn btn-primary wish-act" data-add="${p.id}:0">${ICON.cart} Add to Cart</button>`;
     return `
     <div class="cart-item">
       <a class="thumb" href="${productUrl(p)}">${photo(p.img, p.name)}</a>

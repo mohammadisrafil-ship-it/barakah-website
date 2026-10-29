@@ -75,17 +75,17 @@ function renderProduct(p) {
         </div>
 
         <div class="pd-actions">
-          <button type="button" class="btn btn-outline" id="addBtn"${stock ? "" : " disabled"}>${ICON.cart} কার্টে যোগ করুন</button>
+          <button type="button" class="btn btn-outline" id="addBtn"${stock ? "" : " disabled"}>${ICON.cart} Add to Cart</button>
           <button type="button" class="btn btn-primary" id="orderBtn"${stock ? "" : " disabled"}>
-            <svg viewBox="0 0 24 24"><path d="M6 7h12l-1 13H7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg> অর্ডার করুন
+            <svg viewBox="0 0 24 24"><path d="M6 7h12l-1 13H7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg> Order Now
           </button>
           <a class="btn btn-whatsapp" id="waBtn" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 1c-1-.5-2-1.5-2.5-2.5l1-1-1-2z"/></svg>
-            <span class="lg-only">হোয়াটসঅ্যাপে অর্ডার করুন</span><span class="sm-only">হোয়াটসঅ্যাপ</span>
+            <span class="lg-only">Order on WhatsApp</span><span class="sm-only">WhatsApp</span>
           </a>
           <a class="btn btn-call" href="tel:${CONTACT.tel}">
             <svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
-            কল অর্ডার<span class="lg-only">: ${CONTACT.phone}</span>
+            Call to Order<span class="lg-only">: ${CONTACT.phone}</span>
           </a>
         </div>
 
@@ -164,7 +164,7 @@ function renderProduct(p) {
 
   <div class="pd-sticky" id="pdSticky">
     <div><b id="stickyPrice"></b><small id="stickyVariant"></small></div>
-    <button type="button" class="btn btn-primary" id="stickyOrder"${stock ? "" : " disabled"}>অর্ডার করুন</button>
+    <button type="button" class="btn btn-primary" id="stickyOrder"${stock ? "" : " disabled"}>Order Now</button>
   </div>`;
 
   // related: same category first, then fill from featured products
