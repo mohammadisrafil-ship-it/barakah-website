@@ -999,5 +999,3 @@ img.sp-avatar { object-fit: cover; background: var(--gold-tint); }
   .pd-opts .pd-variants, .pd-opts .pd-qty { margin: 0; }
   .pd-opts .pd-qty { margin-left: auto; }
 }
-/* lighter weight on all buttons */
-.btn, .pd-actions .btn, .hs-btn, .card .btn, .co-submit, .chip { font-weight: 500; }
