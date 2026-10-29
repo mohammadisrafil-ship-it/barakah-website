@@ -884,3 +884,45 @@ img.sp-avatar { object-fit: cover; background: var(--gold-tint); }
 .hs-copy--right { left: 56%; right: 4%; text-align: left; align-items: flex-start; }
 .hs-slide:has(.hs-copy--right)::after { background: linear-gradient(270deg, rgba(20,12,4,.55) 0%, rgba(20,12,4,.35) 35%, rgba(20,12,4,0) 55%); }
 @container (max-width: 560px) { .hs-copy--right { left: 52%; right: 3%; } }
+/* ---------- Product page on phones: photo, price and all buttons in one screen ---------- */
+.sm-only { display: none; }
+@media (max-width: 640px) {
+  .lg-only { display: none; }
+  .sm-only { display: inline; }
+  .breadcrumb { padding: 12px 0 4px; font-size: 12px; }
+  .pd-card { padding: 12px; gap: 12px; border-radius: 14px; }
+  /* thumbnails stacked on the left of the photo */
+  .pd-gallery { grid-template-columns: 54px 1fr; gap: 8px; }
+  .pd-gallery.single { grid-template-columns: 1fr; }
+  .pd-thumbs { order: 0; grid-template-columns: 1fr; grid-auto-rows: 54px; gap: 6px; }
+  .pd-thumbs button { min-height: 0; border-radius: 8px; }
+  .pd-main-img { border-radius: 10px; }
+  .pd-gallery.single .pd-main-img { width: 78%; margin: 0 auto; }
+  .pd-wish { width: 38px; height: 38px; top: 8px; right: 8px; }
+  /* compact text */
+  .pd-title { font-size: 21px; line-height: 1.3; margin: 0; }
+  .pd-title-en { font-size: 13px; margin: 0 0 6px; }
+  .pd-price { margin-bottom: 10px; gap: 8px; }
+  .pd-price b { font-size: 24px; }
+  .pd-price s { font-size: 15px; }
+  /* size and quantity: label and controls on one line each */
+  .pd-variants, .pd-qty { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 10px; margin-bottom: 10px; }
+  .pd-variants .pd-label, .pd-qty .pd-label { margin: 0; min-width: 62px; font-size: 13px; }
+  .pd-variants .chips { gap: 6px; }
+  .pd-variants .chip { min-height: 38px; padding: 6px 14px; font-size: 13px; }
+  .stepper button { width: 38px; height: 38px; }
+  .stepper input { width: 46px; }
+  /* 4 buttons as a 2 x 2 grid */
+  .pd-actions { grid-template-columns: 1fr 1fr; gap: 8px; margin: 12px 0; }
+  .pd-actions .btn { height: 46px; font-size: 13.5px; padding: 0 8px; gap: 6px; }
+  .pd-actions .btn svg { width: 18px; height: 18px; }
+  .pd-meta { padding: 10px 0; font-size: 13px; }
+  .pd-trust { padding: 10px 12px; font-size: 13px; gap: 6px; }
+}
+@media (max-width: 640px) {
+  /* slightly shorter photo box (whole product still visible) so buttons fit on small phones */
+  .pd-main-img { aspect-ratio: 6 / 5; background: #fff; }
+  .pd-main-img img { object-fit: contain; }
+  .pd-gallery.single .pd-main-img { width: 100%; }
+}
+@media (max-width: 640px) { .pd-gallery.single .pd-main-img { width: 82%; margin: 0 auto; } }
