@@ -982,3 +982,4 @@ img.sp-avatar { object-fit: cover; background: var(--gold-tint); }
   .bottom-bar a:active { color: #fff; }
   .bottom-bar a[data-open="wishlist"] .bb-count { background: var(--gold); color: var(--brand-dark); }
 }
+.pd-meta { display: none; } /* category / stock lines not needed on the product page */
