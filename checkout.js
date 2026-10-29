@@ -9,6 +9,9 @@ const ORDER_SHEET_URL = "";
 // Every order is also emailed to the shop through FormSubmit (free). The first order sends an
 // "Activate" email to this address; click it once and all later orders arrive in the inbox.
 const ORDER_EMAIL = "israfilsupol836@gmail.com";
+// Web3Forms (main email service): paste the access key from web3forms.com here.
+// When set, orders go through Web3Forms first; FormSubmit is only the backup.
+const WEB3FORMS_KEY = "";
 
 // ---------- Which items are being checked out ----------
 // ?buy=<productId:variantIndex>&qty=n  -> Buy Now: only that item, cart untouched
@@ -122,13 +125,18 @@ function emailPayload(o) {
   };
 }
 async function sendToEmail(o) {
-  if (!ORDER_EMAIL) return false;
-  const job = { url: `https://formsubmit.co/ajax/${ORDER_EMAIL}`, body: emailPayload(o) };
-  for (let attempt = 0; attempt < 3; attempt++) {
-    if (await postOrderJob(job)) return true;
-    await new Promise(r => setTimeout(r, 1500 * (attempt + 1)));
+  if (!ORDER_EMAIL && !WEB3FORMS_KEY) return false;
+  const p = emailPayload(o);
+  const jobs = [];
+  if (WEB3FORMS_KEY) jobs.push({ url: "https://api.web3forms.com/submit", body: { access_key: WEB3FORMS_KEY, subject: p._subject, from_name: "Barakah Website", ...Object.fromEntries(Object.entries(p).filter(([k]) => !k.startsWith("_"))) } });
+  if (ORDER_EMAIL) jobs.push({ url: `https://formsubmit.co/ajax/${ORDER_EMAIL}`, body: p });
+  for (const job of jobs) {
+    for (let attempt = 0; attempt < 2; attempt++) {
+      if (await postOrderJob(job)) return true;
+      await new Promise(r => setTimeout(r, 1200));
+    }
   }
-  queueOrderJob(job);
+  queueOrderJob(jobs[0]);
   return false;
 }
 
